@@ -1,0 +1,172 @@
+<header>
+
+  
+
+  <!-- Sidebar -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-2">
+        <nav class="col-md-2 d-none d-md-block bg-dark sidebar">
+          <div class="sidebar-sticky">
+            <ul class="nav flex-column">
+              <a class="navbar-brand" href="/customer">
+                <img src="../../../assets/logo.png" height="50" width="80" alt="MDB Logo" loading="lazy" />
+              </a>
+              <!-- Customer Dashboard Link -->
+              <li class="nav-item">
+                <a href="/customer" class="nav-link">
+                  <span> Dashboard</span>
+                </a>
+              </li>
+      
+              <!-- Register Customer Link -->
+              <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" (click)="showAccountCreateFun()">
+                  <i class="fas fa-lock fa-fw me-3"></i>
+                  <span> Register </span>
+                </a>
+              </li>
+      
+              <!-- Request Account Link -->
+              <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" (click)="showAccountRequestFun()">
+                  <i class="fas fa-lock fa-fw me-3"></i>
+                  <span> Create Account</span>
+                </a>
+              </li>
+      
+              <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" (click)="viewPassbook()">
+                  <i class="fas fa-lock fa-fw me-3"></i>
+                  <span> Passbook</span>
+                </a>
+              </li>
+      
+              <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" (click)="viewAccountStatement()">
+                  <i class="fas fa-lock fa-fw me-3"></i>
+                  <span> Account Statement</span>
+                </a>
+              </li>
+      
+              <!-- Transaction Link -->
+              <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" (click)="showTransactionFun()">
+                  <i class="fas fa-lock fa-fw me-3"></i>
+                  <span> Transactions</span>
+                </a>
+              </li>
+      
+              <!-- Upload Documents Link -->
+              <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" (click)="showDocumentFun()">
+                  <i class="fas fa-chart-line fa-fw me-3"></i>
+                  <span> Documents</span>
+                </a>
+              </li>
+      
+              <!-- View All Query Asked Link -->
+              <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" (click)="viewQueryForm()">
+                  <span> Query</span>
+                </a>
+              </li>
+      
+              <!-- Logout Customer Link -->
+              <li class="nav-item logout" routerLinkActive="active">
+                <a class="nav-link" (click)="logout()">
+                  <i class="fas fa-chart-bar fa-fw me-3"></i>
+                  <span> LogOut</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav> 
+
+      </div>
+      <div class="col-lg-12">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container">
+            <!-- Search Bar -->
+            <div class="col">
+              <form class="form-inline my-3 my-lg-0 ">
+                <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+              </form>
+      
+              <ul class="nav flex-column">
+                <li class="nav-item" >
+                  <a class="nav-link" (click)="fdcalculator()" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                    FD Calculator
+                  </a>
+                </li>
+              </ul>
+            </div>
+        
+            <div class="col-auto ml-auto">
+              <span class="navbar-text mr-3 navbar-custom-text">
+                Bharath Nair
+              </span>
+              <img src="../../../assets/avtar.png" alt="Profile" class="rounded-circle" style="width: 40px; height: 40px;">
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div> 
+  </div>
+</header>
+<!--Main Navigation-->
+
+<!--Main layout-->
+<main style="margin-top: 58px;">
+
+  <div *ngIf="showPassbook">
+    <app-customer-passbook></app-customer-passbook>
+  </div>
+
+
+  <div *ngIf="showAccountForm">
+    <app-request-account></app-request-account>
+  </div>
+
+  <div *ngIf="showAccountStatment">
+    <app-account-statement></app-account-statement>
+  </div>
+
+
+  <div *ngIf="showDocument">
+    <app-customer-document></app-customer-document>
+  </div>
+
+  <div *ngIf="showAccountCreate">
+    <app-customer-register></app-customer-register>
+  </div>
+
+  <div *ngIf="showQuery">
+    <app-customer-query></app-customer-query>
+  </div>
+
+
+  <div *ngIf="showTransaction">
+    <app-customert-transaction></app-customert-transaction>
+  </div>
+
+  <h4 *ngIf="showWarrning"> Create Customer Details to Request Account</h4>
+
+  <div *ngIf="showQueryTab">
+    <app-view-query></app-view-query>
+  </div>
+
+  <div *ngIf="showCalculator">
+    <app-fd-calculator></app-fd-calculator>
+  </div>
+
+  <!-- <h3>userId: out {{newUserId}}</h3>
+
+  <h3>customerId:{{customerId}}</h3>
+
+  <h3>AccountId:{{customerId}}</h3>
+  <h3>AccountId: out{{customerId}}</h3>
+
+  <h3>userId In:{{userId}}</h3> -->
+</main>
+<!--Main layout-->
